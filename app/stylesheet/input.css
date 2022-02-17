@@ -1,0 +1,173 @@
+@import url("common.css");
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0px;
+    background-color: var(--gray-xdark);
+    color: white;
+}
+
+body.draggable {
+    -webkit-app-region: drag;
+}
+
+#main-container {
+    height: 100%;
+}
+
+#output-container {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#input-container {
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 16px;
+    padding-top: 0px;
+}
+
+#tex-output {
+    flex-grow: 0;
+    font-size: 18px;
+    user-select: none;
+}
+
+#tex-input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--gray-dark);
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    color: var(--gray-xxlight);
+    font: 14px monospace;
+    -webkit-app-region: no-drag;
+}
+
+#tex-input:focus {
+    outline: none;
+}
+
+#window-controls {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    padding: 16px;
+}
+
+#window-controls > button {
+    display: flex;
+    box-sizing: border-box;
+    min-width: 0px;
+    width: 16px;
+    height: 16px;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    border-width: 1px solid initial;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity var(--duration-xshort) ease;
+}
+
+body.draggable #window-controls > button {
+    opacity: 1;
+}
+
+body:hover #window-controls > button {
+    opacity: 1;
+}
+
+#window-controls:focus-within > button {
+    opacity: 1;
+}
+
+#window-controls > button + button {
+    margin-left: 12px;
+}
+
+#window-controls > button > img {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    transition: opacity var(--duration-xshort) ease;
+}
+
+#window-controls > button:focus > img {
+    opacity: 0.7;
+}
+
+#window-controls > button:hover > img {
+    opacity: 0.7;
+}
+
+#window-controls > button.icon {
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+}
+
+#window-controls > button.icon > img {
+    width: 16px;
+    height: 16px;
+    opacity: 1;
+    transition: filter var(--duration-xshort) ease;
+}
+
+#window-controls > button.icon:focus > img {
+    opacity: 1;
+    filter: brightness(150%);
+}
+
+#window-controls > button.icon:hover > img {
+    opacity: 1;
+    filter: brightness(150%);
+}
+
+#accept {
+    background-color: var(--green-light);
+    border-color: var(--green);
+}
+
+#cancel {
+    background-color: var(--red-light);
+    border-color: var(--red);
+}
+
+#banner-container {
+    position: fixed;
+    width: 100%;
+    height: 0px;
+    top: 0px;
+    justify-content: center;
+}
+
+#banner {
+    position: absolute;
+    min-width: 200px;
+    max-width: 400px;
+    bottom: 0px;
+    padding: 0px 8px 8px 8px;
+    background-color: var(--orange);
+    border-radius: 0px 0px 8px 8px;
+    font: 14px sans-serif;
+    cursor: default;
+    user-select: none;
+    transition: transform var(--duration-short) ease;
+}
+
+#banner p {
+    margin: 10px 0px;
+    line-height: 20px;
+}
+
+#banner.show {
+    transform: translateY(100%);
+}

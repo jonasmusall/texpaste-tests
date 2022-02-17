@@ -1,0 +1,52 @@
+@import url("common.css");
+
+button {
+    min-width: 80px;
+    padding: 4px 16px;
+    background-color: white;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    color: black;
+    font: 12px sans-serif;
+    transition-property: background-color, border-color;
+    transition-timing-function: ease;
+    transition-duration: var(--duration-xshort);
+    -webkit-app-region: no-drag;
+}
+
+button + button {
+    margin-left: 8px;
+}
+
+button:focus {
+    border-color: var(--blue-light);
+    outline: none;
+}
+
+button:hover {
+    background-color: var(--gray-xxlight);
+}
+
+button:active {
+    background-color: var(--blue-xlight);
+    border-color: var(--blue-light);
+}
+
+button.outlined {
+    background-color: transparent;
+    border: 1px solid var(--white-transp);
+    color: white;
+}
+
+button.outlined:focus {
+    border-color: white;
+}
+
+button.outlined:hover {
+    background-color: var(--white-xtransp);
+}
+
+button.outlined:active {
+    background-color: var(--shadow);
+    border-color: white;
+}

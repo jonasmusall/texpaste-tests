@@ -1,0 +1,218 @@
+@import url("common.css");
+
+html {
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0px;
+    padding: 8px;
+    font: 14px sans-serif;
+    cursor: default;
+    user-select: none;
+}
+
+h1 {
+    font-size: 14px;
+    margin: 8px 0px 6px 0px;
+}
+
+/* ---- MUTUAL INPUT STYLES ---- */
+
+label.input {
+    --spacing: 8px;
+    display: flex;
+    width: max-content;
+    max-width: 100%;
+    min-height: 18px;
+    margin-bottom: 6px;
+    flex-direction: row;
+    align-items: center;
+    user-select: none;
+}
+
+label.input.indented {
+    margin-left: 16px;
+}
+
+label.input > input {
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+    opacity: 0;
+}
+
+label.input > :not(input) + :not(input){
+    margin-left: var(--spacing);
+}
+
+label.input > input:hover ~ div {
+    box-shadow: 0px 0px 0px 3px var(--shadow);
+}
+
+label.input > input:focus {
+    outline: none;
+}
+
+label.input > input:focus ~ div {
+    border-color: var(--blue-light);
+    box-shadow: 0px 0px 0px 3px var(--blue-transp);
+}
+
+label.input > input:disabled:hover ~ div {
+    box-shadow: none;
+}
+
+label.input > input:disabled ~ span {
+    color: var(--gray);
+}
+
+/* ---- CHECKBOX INPUT ---- */
+
+label.input.checkbox > div {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--gray-light);
+    border-radius: 3px;
+    transition-property: background-color, border-color, box-shadow;
+    transition-timing-function: ease;
+    transition-duration: var(--duration-xshort);
+}
+
+label.input.checkbox > div::after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-image: url(../../assets/icons/check_white.svg);
+    background-size: 12px 12px;
+}
+
+label.input.checkbox > span {
+    transition: color var(--duration-xshort) ease;
+}
+
+label.input.checkbox > input:checked ~ div {
+    background-color: var(--blue-light);
+    border-color: var(--blue-light);
+}
+
+label.input.checkbox > input:disabled ~ div {
+    border-color: var(--gray-xlight);
+}
+
+label.input.checkbox > input:disabled:checked ~ div {
+    background-color: var(--gray-light);
+    border-color: var(--gray-light);
+}
+
+/* ---- COLOR INPUT ---- */
+
+label.input.color {
+    --value: #000000;
+    --value-string: "#000000";
+}
+
+label.input.color > input {
+    order: 2;
+    transform: translateX(-9px);
+}
+
+label.input.color > div {
+    order: 1;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: var(--value);
+    border: 1px solid var(--gray-light);
+    border-radius: 9px;
+    transition-property: border-color, box-shadow;
+    transition-timing-function: ease;
+    transition-duration: var(--duration-xshort);
+}
+
+label.input.color > span {
+    order: 0;
+}
+
+label.input.color > div + span {
+    order: 3;
+}
+
+label.input.color > input:active ~ div {
+    border-color: var(--blue-light);
+    box-shadow: 0px 0px 0px 3px var(--blue-transp);
+}
+
+/* -------- RANGE INPUT -------- */
+
+label.input.range {
+    --value: 50%;
+    --value-string: "50%";
+    --spacing: 15px;
+}
+
+label.input.range > input {
+    order: 2;
+    -webkit-appearance: none;
+    width: 140px;
+    height: 2px;
+    background-image: linear-gradient(to left, var(--blue-light) 50%, var(--gray-xlight) 50%);
+    background-position-x: calc(0% - var(--value));
+    background-size: 200% 100%;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    opacity: 1;
+}
+
+label.input.range > input::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    margin: -7px;
+}
+
+label.input.range > input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border: 1px solid var(--gray-light);
+    border-radius: 9px;
+    transition-property: background-color, border-color, box-shadow;
+    transition-timing-function: ease;
+    transition-duration: var(--duration-xshort);
+}
+
+label.input.range > span {
+    order: 4;
+}
+
+label.input.range.label-before > span {
+    order: 0;
+    margin-left: 0px;
+    margin-right: var(--spacing);
+}
+
+label.input.range.output-after > output {
+    order: 3;
+    margin-left: var(--spacing);
+}
+
+label.input.range.output-after > output::after {
+    content: var(--value-string);
+}
+
+label.input.range > input:hover::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px 3px var(--shadow);
+}
+
+label.input.range > input:focus::-webkit-slider-thumb {
+    border-color: var(--blue-light);
+    box-shadow: 0px 0px 0px 3px var(--blue-transp);
+}

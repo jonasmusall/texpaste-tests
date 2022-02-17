@@ -1,0 +1,4 @@
+owner: jonasmusall
+repo: texpaste-tests
+provider: github
+updaterCacheDirName: texpaste-updater

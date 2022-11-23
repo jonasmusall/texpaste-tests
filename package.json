@@ -1,12 +1,12 @@
 {
   "name": "texpaste",
-  "version": "1.2.2",
+  "version": "1.2.0",
   "description": "Live TeX rendering.",
   "author": "Jonas Musall",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonasmusall/texpaste-tests.git"
+    "url": "https://github.com/jonasmusall/texpaste.git"
   },
   "main": "main.js",
   "scripts": {
@@ -25,6 +25,9 @@
     "electron-updater": "^4.6.5",
     "katex": "^0.15.2",
     "semver": "^7.3.5"
+  },
+  "engines": {
+    "npm": ">=7.0.0"
   },
   "build": {
     "appId": "jonasmusall.texpaste",
@@ -54,14 +57,18 @@
         "deb",
         "tar.gz"
       ],
+      "icon": "build/512x512.png",
       "maintainer": "Jonas Musall",
-      "icon": "build/512x512.png"
+      "category": "Utility"
     },
     "nsis": {
       "oneClick": true,
       "perMachine": false,
       "createDesktopShortcut": false,
-      "artifactName": "${productName}_${version}_setup_${os}.${ext}"
+      "artifactName": "${productName}_${version}_${os}_setup.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName}_${version}_${os}_portable.${ext}"
     }
   },
   "selfUpdate": false

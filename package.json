@@ -1,6 +1,6 @@
 {
   "name": "texpaste",
-  "version": "1.2.1",
+  "version": "1.2.0",
   "description": "Live TeX rendering.",
   "author": "Jonas Musall",
   "license": "GPL-3.0",
@@ -58,7 +58,7 @@
         "deb",
         "tar.gz"
       ],
-      "icon": "build/512x512.png",
+      "icon": "build/icons",
       "maintainer": "Jonas Musall",
       "category": "Utility"
     },
